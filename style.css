@@ -16,13 +16,15 @@ nav
     position: fixed;
     margin-bottom: 100px;
     z-index: 3;   
+    overflow:visible;
    
 }
-nav li
+.navegador li
 {
     float: left;
      transition: all ease 300ms;
- 
+     position: relative;
+  
 }
 .imgmenu{
 
@@ -61,12 +63,43 @@ a
 
 nav ul{
     list-style: none;
-
     background-color: rgb(255, 255, 251);
-    overflow: hidden;
+
     height: 90px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.63);
 }
+
+/* Menu desplegabale */
+
+.navegador li:hover ul{
+    display: block;
+}
+
+.navegador ul{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color:rgb(255, 255, 251); 
+    width: 300px;
+    text-align: left;
+    height: auto;
+
+}
+
+
+
+.navegador ul li a{
+    display: block;
+    padding: 10px;
+    width: 280px;
+    border-bottom: 1px solid black;
+}
+
+.navegador ul li a:hover{
+    background-color: rgb(248, 182, 14);;
+}
+
 
 /* INTRODUCCION DE LA PAGINA WEB */
 
@@ -134,12 +167,17 @@ nav ul{
 }
 
 /* SECCION INTRODUCTORIA A LOS MITOS */
-
 .introduccionLeyendas{
     width: 100%;
     height: auto;
     box-sizing: border-box;
+    margin-top: 40px;
 }
+
+.introduccionLeyendas h1{
+    text-align: center;
+}
+
 .informaciónLeyendas{
     display: flex;
     justify-content: space-around;
@@ -149,7 +187,7 @@ nav ul{
 }
 .slider2{
     overflow: hidden;
-    flex-basis: 700px;
+    flex-basis: 600px;
     height: 140px;
     margin: 0;
 }
@@ -304,83 +342,91 @@ video{
 }
 
     /* SECCION DE LOS CUENTOS */
-#menuCuentos{
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    color:white;
-    
-}
-
-.fondo2{
-    background-image: url("./imagenesDecorativas/ciudad\ colonial.jpg");
-    background-position: center ;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 600px;    
-}
-
-.cuento{
-    width: 33%;
-    text-align: center;
-    padding: 20px 10px;
-    border-left: 1px solid rgb(0, 0, 0);
-    margin: 20px;
-    background-color: rgba(202, 129, 74, 0.445);
-    border-radius: 8px;
-    color:white;
-    transition: all ease 300ms;
-}
-
-.cuento p{
-    font-size: 18px;
-    text-align: left;
-    padding: 10px;
-}
-
-.cuento:hover{
-     background: rgba(7, 144, 208, 0.596);
-    color: white;
-    font-size: 15px;
-}
-
-#introducecuentos{
-     text-align: center;
-    padding: 30px;
-}
-
-
-
-#introducecuentos h1{
-    color:white;
-
-}
-
-#menuCuentos h1{
+/* SECCION DEL MENU DE CUENTOS */
+.cuentos{
+    position: relative;
+    height: auto;
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 20px;
-  
+    padding-top: 0px;
 }
 
-
-#textoCuentos{
-    border-right: 1px solid rgb(0, 0, 0);
-    padding: 15px;
+/* ENCABEZADO DE LOS CUENTOS */
+.encabezadoCuentos{
+        text-align: center;
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.encabezadoCuentos h1{
+    margin: 10px 0;
+    font-size: 2.8rem;
+}
+.encabezadoCuentos p{
+      font-size: 1rem;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.cuentos1{
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-    padding: 30px 0 30px 0;
-}
-.img3{
+/* VIDEO DE FONDO */
+video{
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
-#img3{
-    right: 150px;
+/* TARJETAS DE LOS CUENTOS */
+.gridCuentos{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.tarjetaCuentos{
+    background-color: white;
+    border: 1px solid #d1d1d1;
+    text-align: center;
+    border-radius: 7px;
+    transition: all ease 2000ms;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjetaCuentos:hover{
+    transform: translateY(-7px);
+}
+
+.tarjetaCuentos h3{
+    margin: 30px 20px 20px 30px;
+}
+
+.tarjetaCuentos p{
+    padding: 0 20px;
+}
+
+.tarjetaCuentos img{
+    width: 100%;
+    height: 280px;
+    border-radius: 7px;
+}
+
+.tarjetaCuentos a{
+    background-color: #379bdf;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 30px;
+    margin: 35px;
+    transition: all ease 2000ms;
+}
+
+.tarjetaCuentos a:hover{
+    background-color: #2671a4;
 }
 
 /* PARA PONER LAS LINEAS A UNO Y OTRO LADO DEL TEXTO */
@@ -392,6 +438,7 @@ video{
     width: 100%;
     margin: 25px auto;
 
+    
 }
 
 .linea{
